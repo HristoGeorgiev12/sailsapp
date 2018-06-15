@@ -35,7 +35,7 @@
   </head>
 
   <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <h1 id="main-title" class="container"><%= __('My First Sails app.') %></h1>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,16 +47,21 @@
               <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="/blog/view">View posts</a>
-              </li>
+              </li> -->
               <li class="nav-item">
-                  <a class="nav-link" href="blog/create">Create post</a>
+                  <a class="nav-link" href="post/create">Create</a>
+                </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="post/read">Read</a>
                 </li>
             </ul>
           </div>
         </nav>
+        <div class="container">
           <%- body %>
+        </div>
 
 
 

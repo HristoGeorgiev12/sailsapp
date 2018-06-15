@@ -28,6 +28,22 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
 
+  'create': {
+    view: 'pages/posts'
+  },
+
+  'read': {
+    view: 'pages/read'
+  },
+
+  'update': {
+    view: 'pages/update'
+  },
+
+  'delete': { 
+    view: 'pages/delete'
+  },
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *
