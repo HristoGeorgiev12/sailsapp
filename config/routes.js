@@ -28,21 +28,22 @@ module.exports.routes = {
     view: 'pages/homepage'
   },
 
-  'create': {
-    view: 'pages/posts'
-  },
+  // '/list': {
+  //   controller: 'BlogController',
+  //   action: 'list'
+  // },
 
-  'read': {
-    view: 'pages/read'
-  },
+  // '/add': {
+  //   view: 'add'
+  //   // controller: 'BlogController',
+  //   // action: 'add'
+  // },
 
-  'update': {
-    view: 'pages/update'
-  },
-
-  'delete': { 
-    view: 'pages/delete'
-  },
+  // 'create': {
+  //   // view: 'create'
+  //   controller: 'BlogController',
+  //   action: 'create'
+  // },
 
   /***************************************************************************
   *                                                                          *

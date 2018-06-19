@@ -1,0 +1,9 @@
+<h1 class="display-4 step">Edit Blog Posts</h1>
+<form action="/blog/update" method="post">
+    <input type="hidden" name="val" value="<%= posts.id %>">
+    <label>Title</label>
+    <input type="text" name="title" class="text form-control" value="<%= posts.post %>">
+    <label>Body</label>    
+    <textarea type="text" name="body" class="text form-control"><%= posts.text %></textarea>
+    <input type="submit" value="Send" class="btn btn-primary btn-sm">
+</form>

@@ -6,39 +6,67 @@
  */
 
 module.exports = {
-  read:function(req, res) {
-      Blog.find({}).exec(function(err, posts) {
-        if(err) {
-            res.send(500, {"error": 'Database error'});
+    list:function(req, res){
+        Blog.find({}).exec(function(err, post){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+            res.view('list', {posts:post});
+        });
+    },
+
+    add:function(req, res) {
+        res.view('add');
+    },
+
+    create:function(req, res){
+        var title = req.body.title;
+        var body = req.body.body;
+    
+        Blog.create({post:title, text:body}).exec(function(err){
+        if(err){
+            res.send(200, {error: 'Database Error'});
         }
+    
+        res.redirect('/blog/list');
+        });
+    },
 
-        res.view("read", {posts: posts});
-      })
-  },
+    delete: function(req, res){
+        Blog.destroy({id:req.body.val}).exec(function(err){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+        
+            res.redirect('/blog/list');
+        });
+    return false;
+    },
 
-  delete:function(req, res) {
-    Blog.find({}).exec(function(err, posts) {
-      if(err) {
-          res.send(500, {"error": 'Database error'});
-      }
+    edit:function(req, res){
+        Blog.findOne({id:req.body.val}).exec(function(err, post){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+            res.view('edit', {posts:post});
+        });
+    },
+    
 
-      res.view("posts", {posts: posts});
-    })
-},
-  update:function(req, res) {
-    Blog.find({}).exec(function(err, posts) {
-      if(err) {
-          res.send(500, {"error": 'Database error'});
-      }
-
-      res.view("posts", {posts: posts});
-    })
-},
-
-  create:function(req, res) {
-      var title = req.title;
-      var body  = req.body;
-}
+    update: function(req, res){
+        var title = req.body.title;
+        var body = req.body.body;
+    
+        Blog.update({id: req.body.val},{post:title, text:body}).exec(function(err){
+            if(err){
+                res.send(500, {error: 'Database Error'});
+            }
+    
+            res.redirect('/blog/list');
+        });
+    
+        return false;
+    }
 
 };
 
